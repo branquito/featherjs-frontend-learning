@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { NavLink, Route } from 'react-router-dom'
+import ContactListPage from './pages/contact-list-page'
+import ContactFormPage from './pages/contact-form-page'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Contact manager</h1>
+      <NavLink exact to="/"></NavLink>
+      <NavLink exact to="/contacts/new"></NavLink>
+      <Route exact path="/" component={ContactListPage} />
+      <Route path="/contacts/new" component={ContactFormPage} />
+      <Route path="/contacts/edit/:_id" component={ContactFormPage} />
     </div>
   );
 }
